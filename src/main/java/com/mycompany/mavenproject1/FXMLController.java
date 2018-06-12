@@ -43,6 +43,8 @@ public class FXMLController implements Initializable {
     private Button createMeeting;
      @FXML
      private Button checkMeetingsButton;
+     @FXML
+     private Button addPersonButton;
     
    
     
@@ -56,7 +58,7 @@ public class FXMLController implements Initializable {
          
         ArrayList<Person> a = PersonManager.getAll();
         Course b = CourseContext.getCourse();
-        inflabel.setText("Students in Course: " + b.getDescription());
+        inflabel.setText("Students in Course: " + b.getDescription() + ", completedhours: " + b.getCompletedHours() + "/" + b.getHours());
         hourslabel.setText("Hours in Course: " + b.getHours() + "\nCompleted hours: " + b.getCompletedHours());
         
         for(Person e : a){
@@ -70,8 +72,9 @@ public class FXMLController implements Initializable {
 
              @Override
              public void handle(javafx.scene.input.MouseEvent event) {
-                  
+                  if(listView.getSelectionModel().getSelectedItem()!=null){
                   switchScene(event,1);
+                  }
              }
            
            
@@ -105,6 +108,13 @@ public class FXMLController implements Initializable {
             
             
         });
+        addPersonButton.setOnMouseClicked(new javafx.event.EventHandler<javafx.scene.input.MouseEvent>(){
+            @Override
+            public void handle(javafx.scene.input.MouseEvent event) {
+                
+                switchScene(event, 4);
+            }
+        });
        
        
        
@@ -122,6 +132,9 @@ public class FXMLController implements Initializable {
             }
             else if(choice==3){
                 loader = new FXMLLoader(getClass().getResource("/fxml/CheckMeetings.fxml"));
+            }
+            else if(choice==4){
+                loader = new FXMLLoader(getClass().getResource("/fxml/CreatePerson.fxml"));
             }
             else{
                 loader = new FXMLLoader(getClass().getResource("/fxml/Details.fxml"));

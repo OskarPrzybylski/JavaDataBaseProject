@@ -42,15 +42,17 @@ public class GroupsController implements Initializable {
       CourseManager.getDatabase();
       ArrayList<Course> a = CourseManager.getAll();
       for(Course e : a){
-            items.add("Course ID: " + e.getIdCourse() + "Course name: " + e.getDescription());
+            items.add("Course ID: " + e.getIdCourse() + " Course name: " + e.getDescription());
         }
       listView.setOnMouseClicked(new javafx.event.EventHandler<javafx.scene.input.MouseEvent>() {
              
 
              @Override
              public void handle(javafx.scene.input.MouseEvent event) {
+                  if(listView.getSelectionModel().getSelectedItem()!=null){
+                      switchScene(event,1);
+                  }
                   
-                  switchScene(event,1);
              }
            
            
@@ -82,6 +84,7 @@ public void switchScene(javafx.scene.input.MouseEvent event, int choise){
             
             
             String kk = listView.getSelectionModel().getSelectedItem();
+            System.out.println(kk);
                  int id = Integer.parseInt(kk.substring(11, 12));
                  Course b = CourseManager.getById(id);
                  

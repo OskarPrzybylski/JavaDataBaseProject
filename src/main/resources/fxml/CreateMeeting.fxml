@@ -39,10 +39,11 @@
 
 
     <!-- Add Email Label -->
-    <Label text="Date : " GridPane.columnIndex="0" 
-           GridPane.rowIndex="2" >
-    </Label>
-    <DatePicker fx:id="datepicker" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+    
+    <DatePicker fx:id="datepicker" GridPane.columnIndex="0" GridPane.rowIndex="1"
+                GridPane.halignment="CENTER"
+GridPane.columnSpan="2" 
+           GridPane.rowSpan="1"    />
  
     
 

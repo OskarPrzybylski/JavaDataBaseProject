@@ -17,6 +17,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import java.lang.reflect.Type;
 import com.google.gson.reflect.TypeToken;
+import com.mycompany.mavenproject1.model.Meeting;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -121,6 +122,20 @@ public class PersonManager {
     }
         save();
         
+    }
+    public static int getPresent(int id){
+        Person a = getById(id);
+        int i=0;
+        
+        ArrayList<Meeting> all = MeetingManager.getByIdCourse(a.getIdCourse());
+        for( Meeting e : all){
+            for(Person k : e.getPresent()){
+                if(k.getId()==a.getId()){
+                    i++;
+                }
+            }
+        }
+        return i;
     }
     
 }

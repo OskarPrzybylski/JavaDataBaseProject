@@ -91,6 +91,20 @@ public class CourseManager {
          }
          return notall;
      }
+     public static void updateRealizedHours(int id){
+         int i=0;
+         int indeks=0;
+         for(Course e : courses){
+             if(e.getIdCourse()==id){
+                 indeks=i;
+             }
+             i++;
+         }
+         Course a = CourseManager.getById(id);
+         a.setCompletedHours(a.getCompletedHours()+2);
+         courses.set(indeks, a);
+         save();
+     }
     
     
     

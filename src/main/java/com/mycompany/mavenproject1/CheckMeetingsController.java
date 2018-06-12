@@ -60,6 +60,7 @@ public class CheckMeetingsController implements Initializable {
 
              @Override
              public void handle(javafx.scene.input.MouseEvent event) {
+                 if(listView.getSelectionModel().getSelectedItem()!=null){
                  String kk = listView.getSelectionModel().getSelectedItem();
                  String k = kk.substring(0, 1);
                  System.out.println(k);
@@ -71,6 +72,7 @@ public class CheckMeetingsController implements Initializable {
                  
                   
                   switchScene(event,1);
+                 }
              }
         });
         backButton.setOnMouseClicked(new javafx.event.EventHandler<javafx.scene.input.MouseEvent>(){

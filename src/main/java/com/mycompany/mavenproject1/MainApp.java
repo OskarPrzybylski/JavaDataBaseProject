@@ -28,6 +28,8 @@ public class MainApp extends Application {
         
         stage.setTitle("JavaFX and Maven");
         stage.setScene(scene);
+        stage.setHeight(1000);
+        stage.setWidth(1000);
         stage.show();
         
         

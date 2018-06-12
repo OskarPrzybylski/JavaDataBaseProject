@@ -5,11 +5,14 @@
  */
 
 import com.mycompany.mavenproject1.MainApp;
+import com.mycompany.mavenproject1.manager.MeetingManager;
 import com.mycompany.mavenproject1.manager.PersonContext;
 import com.mycompany.mavenproject1.manager.PersonManager;
+import com.mycompany.mavenproject1.model.Meeting;
 import com.mycompany.mavenproject1.model.Person;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,9 +34,15 @@ public class DetailsController implements Initializable {
 
     private Person a;
     @FXML
-    private Label information;
+    private Label information1;
     @FXML
     private Button backButton;
+    @FXML
+    private Label information2;
+    @FXML
+    private Label information3;
+    @FXML
+    private Label information4;
     /**
      * Initializes the controller class.
      */
@@ -43,10 +52,13 @@ public class DetailsController implements Initializable {
         //Person a = PersonContext.getPerson();
         //System.out.println(a.getId() + "oto id");
         Person b = PersonContext.getPerson();
-        information.setText("student id: " + b.getId() +
-                "\nstudent name: " + b.getName() + 
-                "\nstudent surname: " + b.getSurname() + 
-                "\ncourse: " + b.getIdCourse());
+        information1.setText("Name: " + b.getName());
+        information2.setText("Surname: " + b.getSurname());
+        int present = PersonManager.getPresent(b.getId());
+        ArrayList<Meeting> all = MeetingManager.getByIdCourse(b.getIdCourse());
+        
+        information3.setText("Present: " + present + "/" + all.size());
+        information4.setText("Course id: " + b.getIdCourse());
         backButton.setOnMouseClicked(new javafx.event.EventHandler<javafx.scene.input.MouseEvent>(){
             @Override
             public void handle(MouseEvent event) {

@@ -22,7 +22,7 @@
     </columnConstraints>
     
      <Label fx:id="inflabel" GridPane.columnIndex="0" 
-           GridPane.rowIndex="0" GridPane.columnSpan="2" 
+           GridPane.rowIndex="0" GridPane.columnSpan="4" 
            GridPane.rowSpan="1" GridPane.halignment="CENTER" >
         <font>
             <Font name="Arial" size="24" ></Font>
@@ -33,7 +33,7 @@
     </Label>
     
     <Label fx:id="hourslabel" GridPane.columnIndex="0" 
-           GridPane.rowIndex="4" GridPane.columnSpan="2" 
+           GridPane.rowIndex="6" GridPane.columnSpan="4" 
            GridPane.rowSpan="1" GridPane.halignment="CENTER" >
         <font>
             <Font name="Arial" size="24" ></Font>
@@ -43,26 +43,26 @@
         </GridPane.margin>
     </Label>
     
-    <ListView fx:id="listView" GridPane.columnIndex="0" GridPane.rowIndex="2" 
-              GridPane.columnSpan="2" GridPane.rowSpan="1">
+    <ListView fx:id="listView" GridPane.columnIndex="0" GridPane.rowIndex="3" 
+              GridPane.columnSpan="4" GridPane.rowSpan="4">
         
     </ListView>
     
     <Button fx:id="backButton" text="back"
             prefWidth="100" prefHeight="40" defaultButton="true"
-            GridPane.columnIndex="0" GridPane.rowIndex="3"
-            GridPane.columnSpan="2" GridPane.rowSpan="1"
-            GridPane.halignment="CENTER"
+            GridPane.columnIndex="0" GridPane.rowIndex="2"
+            GridPane.columnSpan="1" GridPane.rowSpan="1"
+            GridPane.halignment="LEFT"
             >
         <GridPane.margin>
             <Insets top="0" right="0" bottom="0" left="0"></Insets>
         </GridPane.margin>
     </Button>
     <Button fx:id="createMeeting" text="Add new meeting"
-            prefWidth="200" prefHeight="40" defaultButton="true"
-            GridPane.columnIndex="0" GridPane.rowIndex="4"
-            GridPane.columnSpan="3" GridPane.rowSpan="1"
-            GridPane.halignment="CENTER"
+            prefWidth="100" prefHeight="40" defaultButton="true"
+            GridPane.columnIndex="1" GridPane.rowIndex="2"
+            GridPane.columnSpan="1" GridPane.rowSpan="1"
+            GridPane.halignment="LEFT"
             >
         <GridPane.margin>
             <Insets top="0" right="0" bottom="0" left="0"></Insets>
@@ -70,9 +70,19 @@
     </Button>
     <Button fx:id="checkMeetingsButton" text="Meetings"
             prefWidth="100" prefHeight="40" defaultButton="true"
-            GridPane.columnIndex="0" GridPane.rowIndex="5"
-            GridPane.columnSpan="2" GridPane.rowSpan="1"
-            GridPane.halignment="CENTER"
+            GridPane.columnIndex="2" GridPane.rowIndex="2"
+            GridPane.columnSpan="1" GridPane.rowSpan="1"
+            GridPane.halignment="LEFT"
+            >
+        <GridPane.margin>
+            <Insets top="0" right="0" bottom="0" left="0"></Insets>
+        </GridPane.margin>
+    </Button>
+    <Button fx:id="addPersonButton" text="Add Person"
+            prefWidth="100" prefHeight="40" defaultButton="true"
+            GridPane.columnIndex="3" GridPane.rowIndex="2"
+            GridPane.columnSpan="1" GridPane.rowSpan="1"
+            GridPane.halignment="LEFT"
             >
         <GridPane.margin>
             <Insets top="0" right="0" bottom="0" left="0"></Insets>

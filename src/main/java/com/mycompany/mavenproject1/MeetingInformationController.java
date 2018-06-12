@@ -49,21 +49,23 @@ public class MeetingInformationController implements Initializable {
             
            Course course = CourseContext.getCourse();
             ArrayList<Person> all = CourseManager.getAllPersons(course.getIdCourse());
-            System.out.println(meeting.getMeetingId() + "to jest w init");
+            
             if(meeting.getRealized()==1){
                 
             
             for(Person e : all){
                 for(Person a : meeting.getPresent()){
                     if(e.getId()==a.getId()){
-                        items.add(e.toString() + "was present");
+                        items.add(e.toString() + " was on meeting");
                         loop=1;
                     }
                 }
                 if(loop==0){
-                    items.add(e.toString() + "was not present");
-                    loop=0;
+                    items.add(e.toString() + " was not on meeting");
+                    
                 }
+                loop=0;
+                
             }
             }
             else{
@@ -79,6 +81,7 @@ public class MeetingInformationController implements Initializable {
 
              @Override
              public void handle(javafx.scene.input.MouseEvent event) {
+                 if(listView.getSelectionModel().getSelectedItem()!=null){
                   MeetingManager.getDatabase();
                   String kk = listView.getSelectionModel().getSelectedItem();
                  int id = Integer.parseInt(kk.substring(0, 1));
@@ -92,16 +95,16 @@ public class MeetingInformationController implements Initializable {
                       }
                       i++;
                   }
-                  System.out.println(indeks + "kurwa mac");
+                  
                   int loop=0;
                   i=0;
                   
   
                   for(Person e : meeting.getPresent()){
-                      System.out.println("pizdeczka");
+                     
                       if(e.getId()==b.getId()){
                           
-                         items.set(indeks, b.toString() + "was not on meeting");
+                         items.set(indeks, b.toString() + " was not on meeting");
                          MeetingManager.RemovePresent(b, meeting.getMeetingId());
                          loop=1;
                       }
@@ -110,7 +113,7 @@ public class MeetingInformationController implements Initializable {
                   }
                   
                   if(loop==0){
-                          items.set(indeks, b.toString() + "was on meeting");
+                          items.set(indeks, b.toString() + " was on meeting");
                           MeetingManager.AddPresent(b, meeting.getMeetingId());
                           loop=0;
                       }
@@ -121,7 +124,7 @@ public class MeetingInformationController implements Initializable {
                  
                  
                   
-                  
+                 } 
              }
            
            

@@ -7,6 +7,7 @@ package com.mycompany.mavenproject1.manager;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.mycompany.mavenproject1.model.Course;
 import com.mycompany.mavenproject1.model.Meeting;
 import com.mycompany.mavenproject1.model.Person;
 import java.io.PrintWriter;
@@ -60,6 +61,8 @@ public class MeetingManager {
          a.setIdCourse(idCourse);
          a.setDate(date);
          a.setHomework(null);
+         Course course = CourseContext.getCourse();
+         CourseManager.updateRealizedHours(course.getIdCourse());
          a.setPresent(null);
          a.setRealized(0);
           if(meetings.isEmpty()){
@@ -113,12 +116,13 @@ public class MeetingManager {
              i++;
          }
          
-         System.out.println("jebac legie");
+         
          ArrayList<Person> list = meetings.get(indeks).getPresent();
          list.add(person);
          Meeting test = meetings.get(indeks);
          test.setPresent(list);
          test.setRealized(1);
+         
          meetings.set(indeks, test);
          save();
          
